@@ -1,0 +1,5 @@
+requests
+feedparser
+html2text
+aiogram
+beautifulsoup4
