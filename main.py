@@ -78,7 +78,10 @@ async def cmd_news(message: types.Message):
     await sent.delete()
     for entry in entries:
         title = entry.title
-        summary = html2text.html2text(entry.summary)
+        try:
+            summary = html2text.html2text(entry.summary)
+        except AttributeError:
+            summary = ''
         link = entry.link
         await message.answer(f"{title}\n\n{summary}\n{link}", parse_mode="Markdown")
 
